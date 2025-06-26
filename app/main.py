@@ -79,7 +79,6 @@ def register(student_id: int, class_id: int, db: Session = Depends(get_db)):
 @app.get("/classes/{class_id}/students")
 def list_students(class_id: int, db: Session = Depends(get_db)):
     return crud.get_students_in_class(db, class_id)
-    @app.get("/")
+@app.get("/")
 def read_root():
-    return {"message": "Hello from Azure!"}
-
+    return {"message": "Hello"}
