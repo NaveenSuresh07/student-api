@@ -1,12 +1,15 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
-from . import crud, models
-from .database import engine, SessionLocal
+from app import crud, models
+from app.database import engine, SessionLocal
 from pydantic import BaseModel
 from datetime import date
 
 app = FastAPI()
-
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+    
 models.Base.metadata.create_all(bind=engine)
 
 
